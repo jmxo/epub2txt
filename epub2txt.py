@@ -90,7 +90,7 @@ class TocParser():
   def startElement(self, name, attributes):
     if name == "navPoint":
       level = len(self.stack)
-      self.currentNP = NavPoint(attributes["id"], attributes["playOrder"], level)
+      self.currentNP = NavPoint(attributes.get("id"), attributes.get("playOrder"), level)
       self.stack.append(self.currentNP)
       self.toc.append(self.currentNP) 
     elif name == "content":
